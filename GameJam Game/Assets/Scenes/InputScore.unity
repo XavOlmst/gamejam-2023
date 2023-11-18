@@ -1390,7 +1390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2efa764c32c70bc40a28199215ac3920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highScoreUIElement: {fileID: 1854703515}
+  highScoreUIElement: {fileID: 4444523454779941025, guid: 73d01863a57457f44bdc5a709ac57af9, type: 3}
   elementWrapper: {fileID: 1854703516}
 --- !u!1 &2073680527
 GameObject:

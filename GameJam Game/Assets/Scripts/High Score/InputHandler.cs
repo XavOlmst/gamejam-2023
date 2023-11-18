@@ -10,7 +10,7 @@ public class InputHandler : MonoBehaviour
     [SerializeField] string fileName;
 
     List<InputEntry> entries = new List<InputEntry>();
-    [SerializeField] int maxCount = 4;
+    [SerializeField] int maxCount = 1;
 
     public delegate void OnHighScoreListChanged(List<InputEntry> list);
     public static event OnHighScoreListChanged OnListChanged;
