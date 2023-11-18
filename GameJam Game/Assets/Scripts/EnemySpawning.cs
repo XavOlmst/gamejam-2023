@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemySpawning : MonoBehaviour
 {
     //TODO: Change to enemy class when we get enemy class
+    [SerializeField] private TimelineManager _moveManager;
     [SerializeField] private GameObject _enemyPrefab;
     [SerializeField] private float _spawnDistance = 25f;
     [SerializeField] private float minSpawnDelay = 10;
@@ -47,6 +48,7 @@ public class EnemySpawning : MonoBehaviour
 
             GameObject enemy = Instantiate(_enemyPrefab, spawnPoint * _spawnDistance, Quaternion.identity, transform);
             _enemiesSpawned.Add(enemy);
+            //enemy.GetComponent<EnemyMovement>().SetTarget(_moveManager.GetRandomTimelineTransform());
         }
     }
 }

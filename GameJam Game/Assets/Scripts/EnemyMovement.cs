@@ -5,12 +5,17 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private Transform _target;
+    [SerializeField] private Animator _animator;
+    [SerializeField] private int _numAnimations;
     [SerializeField] private float _moveSpeed;
+    private float _animationChangeTimer;
 
     //This is temporary
     private void Start()
     {
         _target = GameManager.Instance.GetPlayer().transform;
+
+        _animationChangeTimer = Random.Range(1, 3f);
     }
 
     private void Update()
@@ -21,6 +26,15 @@ public class EnemyMovement : MonoBehaviour
         {
             Debug.Log("Reached the player, enable a QTE");
             Destroy(gameObject);
+        }
+
+
+        _animationChangeTimer -= Time.deltaTime;
+
+        if (_animationChangeTimer < 0 && _animator != null)
+        {
+            _animator.SetInteger("animationIndex", Random.Range(0, _numAnimations));
+            _animationChangeTimer = Random.Range(1, 3f);
         }
     }
 
