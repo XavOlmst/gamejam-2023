@@ -19,7 +19,10 @@ public class TimingQTE : MonoBehaviour
     void Start()
     {
         _chosenKey = (KeyCode)_possibleKeys[Random.Range(0, _possibleKeys.Count)];
-        _text.text = _chosenKey.ToString();
+        GameManager.Instance.GetQTECanvas().SetActive(true);
+        GameManager.Instance.GetQTEText().enabled = true;
+        GameManager.Instance.GetQTEText().text = _chosenKey.ToString();
+        GameManager.Instance.SetQTEState(true);
         Debug.Log($"QTE Key: {_chosenKey}");
     }
 
@@ -31,12 +34,13 @@ public class TimingQTE : MonoBehaviour
             if(_delayToPress < 0 && _timeToPress > 0)
             {
                 Debug.Log("Passed Timing QTE");
-                _qteElement.SetActive(false);
                 _passedQTE = true;
+                FinishQTE();
             }
             else
             {
                 Debug.Log("Failed Timing QTE");
+                FinishQTE();
             }
         }
 
@@ -51,7 +55,17 @@ public class TimingQTE : MonoBehaviour
             if(_timeToPress < 0)
             {
                 Debug.Log("Failed Timing QTE");
+                FinishQTE();
             }
         }
+    }
+
+    public void FinishQTE()
+    {
+        GameManager.Instance.GetQTECanvas().SetActive(false);
+        GameManager.Instance.GetQTEText().enabled = false;
+        GameManager.Instance.SetQTEState(false);
+
+        Destroy(gameObject);
     }
 }

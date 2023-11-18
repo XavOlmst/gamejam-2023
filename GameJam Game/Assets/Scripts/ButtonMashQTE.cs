@@ -31,6 +31,11 @@ public class ButtonMashQTE : MonoBehaviour
     private void Start()
     {
         _chosenKey = (KeyCode) _possibleKeys[Random.Range(0, _possibleKeys.Count)];
+        GameManager.Instance.GetQTECanvas().SetActive(true);
+        GameManager.Instance.GetQTEText().enabled = true;
+        GameManager.Instance.GetQTEText().text = _chosenKey.ToString();
+        GameManager.Instance.SetQTEState(true);
+
         Debug.Log($"QTE Key: {_chosenKey}");
     }
 
@@ -45,6 +50,7 @@ public class ButtonMashQTE : MonoBehaviour
             {
                 Debug.Log("Passed Button Mash QTE");
                 _passedQTE = true;
+                FinishQTE();
             }
         }
 
@@ -53,6 +59,16 @@ public class ButtonMashQTE : MonoBehaviour
         if(_timeToComplete < 0 && _timesPressed < _pressesNeeded && !_passedQTE)
         {
             Debug.Log("Failed Button Mash QTE");
+            FinishQTE();
         }
+    }
+
+    public void FinishQTE()
+    {
+        GameManager.Instance.GetQTECanvas().SetActive(false);
+        GameManager.Instance.GetQTEText().enabled = false;
+        GameManager.Instance.SetQTEState(false);
+
+        Destroy(gameObject);
     }
 }
