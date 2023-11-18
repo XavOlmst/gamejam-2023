@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     //Start Signleton
     public static GameManager Instance;
 
+    private float highScore = 0f;
+
     private void Awake()
     {
         if(Instance == null)
