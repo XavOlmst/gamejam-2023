@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TimingQTE : MonoBehaviour
 {
-    [SerializeField] private List<KeyCode> _possibleKeys;
+    [SerializeField] private List<GoodKeyCodes> _possibleKeys;
     [SerializeField] private float _delayToPress = 1.25f;
     [SerializeField] private float _timeToPress = 0.75f;
 
