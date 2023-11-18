@@ -22,6 +22,9 @@ public class KnifeThrowing : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance.IsQTEActive()) return;
+
+
         if (Input.GetMouseButton(0))
         {
             if (_holdTimer < _maxHoldTime)

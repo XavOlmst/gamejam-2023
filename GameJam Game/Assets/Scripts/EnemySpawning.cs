@@ -21,6 +21,8 @@ public class EnemySpawning : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (GameManager.Instance.IsQTEActive()) return;
+
         spawnTimer -= Time.deltaTime;
 
         if(spawnTimer < 0)
@@ -48,7 +50,6 @@ public class EnemySpawning : MonoBehaviour
 
             GameObject enemy = Instantiate(_enemyPrefab, spawnPoint * _spawnDistance, Quaternion.identity, transform);
             _enemiesSpawned.Add(enemy);
-            //enemy.GetComponent<EnemyMovement>().SetTarget(_moveManager.GetRandomTimelineTransform());
         }
     }
 }

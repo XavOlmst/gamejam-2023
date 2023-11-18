@@ -22,12 +22,15 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance.IsQTEActive()) return;
+
+
         transform.position = Vector3.MoveTowards(transform.position, _target.position, _moveSpeed * Time.deltaTime);
 
         if(Vector3.Distance(transform.position, _target.position) < 0.1f)
         {
             Debug.Log("Reached the player, enable a QTE");
-            Instantiate(_qteElement);
+            Instantiate(GameManager.Instance.GetTimingQTE());
             Destroy(gameObject);
         }
 

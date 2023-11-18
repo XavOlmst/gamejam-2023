@@ -21,6 +21,9 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance.IsQTEActive()) return;
+
+
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * xSensitivity;
         float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * ySensitivity;
 

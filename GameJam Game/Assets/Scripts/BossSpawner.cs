@@ -17,6 +17,9 @@ public class BossSpawner : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance.IsQTEActive()) return;
+
+
         _bossTimer -= Time.deltaTime;
 
         if(_bossTimer < 0)
