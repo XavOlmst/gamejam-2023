@@ -38,6 +38,7 @@ public class Knife : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Destroy(gameObject);
+            GameManager.Instance.AddToScore(100);
         }
     }
 

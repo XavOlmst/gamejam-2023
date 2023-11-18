@@ -6,6 +6,8 @@ public class KnifeThrowing : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
 
+    [SerializeField] private Animator _knifeAnimator;
+
     [Tooltip("Make negative to zoom in")]
     [SerializeField] private float _fovOffset;
     
@@ -34,6 +36,7 @@ public class KnifeThrowing : MonoBehaviour
 
                 if (heldPercent > 0.1f)
                 {
+                    _knifeAnimator.SetBool("KnifeCharge", true);
                     _camera.fieldOfView = _initFOV + (_fovOffset * heldPercent);
                 }
             }
@@ -52,6 +55,8 @@ public class KnifeThrowing : MonoBehaviour
 
             knife.GetRigidbody().AddForce(playerTransform.forward * (_maxThrowForce * heldPercent));
             _holdTimer = 0;
+
+            _knifeAnimator.SetBool("KnifeCharge", false);
         }
     }
 
