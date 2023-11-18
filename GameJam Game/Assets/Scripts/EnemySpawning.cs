@@ -5,17 +5,18 @@ using UnityEngine;
 public class EnemySpawning : MonoBehaviour
 {
     //TODO: Change to enemy class when we get enemy class
+    [SerializeField] private TimelineManager _moveManager;
     [SerializeField] private GameObject _enemyPrefab;
     [SerializeField] private float _spawnDistance = 25f;
     [SerializeField] private float minSpawnDelay = 10;
     [SerializeField] private float maxSpawnDelay = 20;
     [SerializeField] private Vector2Int numberSpawnedRange;
     private List<GameObject> _enemiesSpawned = new();
-    private float spawnTimer;
+    private float spawnTimer = 0f;
 
     private void Start()
     {
-        spawnTimer = Random.Range(minSpawnDelay, maxSpawnDelay);
+        //spawnTimer = Random.Range(minSpawnDelay, maxSpawnDelay);
     }
 
     private void FixedUpdate()
@@ -40,13 +41,14 @@ public class EnemySpawning : MonoBehaviour
 
             float playerZ = GameManager.Instance.GetPlayer().transform.position.z;
 
-            while (spawnPoint.z * _spawnDistance < playerZ || Mathf.Abs(spawnPoint.y) > 0.75)
+            while (spawnPoint.z * _spawnDistance < playerZ || Mathf.Abs(spawnPoint.y) > 0.60)
             {
                 spawnPoint = Random.onUnitSphere;
             }
 
             GameObject enemy = Instantiate(_enemyPrefab, spawnPoint * _spawnDistance, Quaternion.identity, transform);
             _enemiesSpawned.Add(enemy);
+            //enemy.GetComponent<EnemyMovement>().SetTarget(_moveManager.GetRandomTimelineTransform());
         }
     }
 }

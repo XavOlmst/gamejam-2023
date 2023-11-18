@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Knife : MonoBehaviour
 {
-    [SerializeField] private float _speed;
+    [SerializeField] private float _minSpeed;
     [SerializeField] private Rigidbody _rb;
     private float _lifeTime = 10f;
 
@@ -16,7 +16,10 @@ public class Knife : MonoBehaviour
             _rb = GetComponent<Rigidbody>();
         }
 
-        _rb.velocity = transform.forward * _speed;
+        if (_rb.velocity.magnitude < _minSpeed)
+        {
+            _rb.velocity = transform.forward * _minSpeed;
+        }
     }
 
     private void Update()
@@ -37,4 +40,6 @@ public class Knife : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public Rigidbody GetRigidbody() => _rb;
 }
