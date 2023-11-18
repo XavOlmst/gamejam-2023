@@ -5,8 +5,10 @@ using UnityEngine;
 public class KnifeThrowing : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
+
     [Tooltip("Make negative to zoom in")]
     [SerializeField] private float _fovOffset;
+    
     [SerializeField] private Knife _knife;
     [SerializeField] private float _maxThrowForce = 400f;
     [SerializeField] private float _maxHoldTime = 2f;
