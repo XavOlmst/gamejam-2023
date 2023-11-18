@@ -455,6 +455,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &732528124 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3eae10af897700a4286d9fc824a60ae2, type: 3}
+  m_PrefabInstance: {fileID: 1273421047}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &732528125 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3eae10af897700a4286d9fc824a60ae2, type: 3}
+  m_PrefabInstance: {fileID: 1273421047}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &732528128
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732528124}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 55b12b559ddfeeb4f8d0ebf7592e443b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,7 +609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 963194227}
-  _knifeAnimator: {fileID: 1977999071}
+  _knifeAnimator: {fileID: 732528128}
   _fovOffset: 20
   _knife: {fileID: 2891975999406184368, guid: 99692adb0eda7e34abc3f82d0adcff89, type: 3}
   _maxThrowForce: 400
@@ -618,7 +649,7 @@ MonoBehaviour:
   _spawnDistance: 25
   minSpawnDelay: 10
   maxSpawnDelay: 25
-  numberSpawnedRange: {x: 1, y: 1}
+  numberSpawnedRange: {x: 8, y: 15}
 --- !u!4 &1147112619
 Transform:
   m_ObjectHideFlags: 0
@@ -854,7 +885,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3eae10af897700a4286d9fc824a60ae2, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1977999071}
+      addedObject: {fileID: 732528128}
   m_SourcePrefab: {fileID: 100100000, guid: 3eae10af897700a4286d9fc824a60ae2, type: 3}
 --- !u!1 &1284796369
 GameObject:
@@ -881,11 +912,11 @@ Transform:
   m_GameObject: {fileID: 1284796369}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.058, z: 0.061}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1977999068}
+  - {fileID: 732528125}
   m_Father: {fileID: 963194228}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &1441403088
@@ -982,7 +1013,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 33538634}
   - {fileID: 1669154645}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1384,3 +1414,5 @@ SceneRoots:
   - {fileID: 1441403092}
   - {fileID: 731340907}
   - {fileID: 1730834545}
+  - {fileID: 303228608}
+  - {fileID: 621449006}
