@@ -10,6 +10,8 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float _moveSpeed;
     private float _animationChangeTimer;
 
+    [SerializeField] private GameObject _qteElement;
+
     //This is temporary
     private void Start()
     {
@@ -25,6 +27,7 @@ public class EnemyMovement : MonoBehaviour
         if(Vector3.Distance(transform.position, _target.position) < 0.1f)
         {
             Debug.Log("Reached the player, enable a QTE");
+            Instantiate(_qteElement);
             Destroy(gameObject);
         }
 

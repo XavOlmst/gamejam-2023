@@ -10,6 +10,7 @@ public class TimingQTE : MonoBehaviour
     [SerializeField] private float _timeToPress = 0.75f;
 
     [SerializeField] private Text _text;
+    [SerializeField] private GameObject _qteElement;   
 
    private KeyCode _chosenKey;
     private bool _passedQTE = false;
@@ -17,7 +18,7 @@ public class TimingQTE : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _chosenKey = _possibleKeys[Random.Range(0, _possibleKeys.Count)];
+        _chosenKey = (KeyCode)_possibleKeys[Random.Range(0, _possibleKeys.Count)];
         _text.text = _chosenKey.ToString();
         Debug.Log($"QTE Key: {_chosenKey}");
     }
@@ -30,6 +31,7 @@ public class TimingQTE : MonoBehaviour
             if(_delayToPress < 0 && _timeToPress > 0)
             {
                 Debug.Log("Passed Timing QTE");
+                _qteElement.SetActive(false);
                 _passedQTE = true;
             }
             else
