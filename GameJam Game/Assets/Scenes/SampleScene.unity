@@ -482,8 +482,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d23741464887fe49872b74573f65291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _camera: {fileID: 963194227}
+  _fovOffset: 20
   _knife: {fileID: 2495460980281000367, guid: 6e0213e68f5b85b4c834035872da8940, type: 3}
-  _maxThrowForce: 4000
+  _maxThrowForce: 400
   _maxHoldTime: 1
 --- !u!1 &1067995889
 GameObject:
