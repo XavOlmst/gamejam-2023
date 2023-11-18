@@ -48,7 +48,7 @@ public class EnemySpawning : MonoBehaviour
 
             GameObject enemy = Instantiate(_enemyPrefab, spawnPoint * _spawnDistance, Quaternion.identity, transform);
             _enemiesSpawned.Add(enemy);
-            enemy.GetComponent<EnemyMovement>().SetTarget(_moveManager.GetRandomTimelineTransform());
+            //enemy.GetComponent<EnemyMovement>().SetTarget(_moveManager.GetRandomTimelineTransform());
         }
     }
 }
