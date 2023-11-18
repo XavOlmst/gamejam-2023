@@ -19,4 +19,8 @@ public class GameManager : MonoBehaviour
         //End Singleton
     }
 
+    [SerializeField] private GameObject player;
+
+    public GameObject GetPlayer() => player;
+
 }
