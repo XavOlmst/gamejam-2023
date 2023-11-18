@@ -31,7 +31,7 @@ public class EnemyMovement : MonoBehaviour
 
         _animationChangeTimer -= Time.deltaTime;
 
-        if (_animationChangeTimer < 0)
+        if (_animationChangeTimer < 0 && _animator != null)
         {
             _animator.SetInteger("animationIndex", Random.Range(0, _numAnimations));
             _animationChangeTimer = Random.Range(1, 3f);
