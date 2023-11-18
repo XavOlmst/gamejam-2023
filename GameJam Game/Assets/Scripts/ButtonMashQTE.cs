@@ -3,9 +3,25 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+public enum GoodKeyCodes
+{
+    Q = KeyCode.Q,
+    W = KeyCode.W,
+    E = KeyCode.E,
+    R = KeyCode.R,
+    A = KeyCode.A,
+    S = KeyCode.S,
+    D = KeyCode.D,
+    F = KeyCode.F, 
+    Z = KeyCode.Z,
+    X = KeyCode.X,
+    C = KeyCode.C,
+    V = KeyCode.V, 
+}
+
 public class ButtonMashQTE : MonoBehaviour
 {
-    [SerializeField] private List<KeyCode> _possibleKeys;
+    [SerializeField] private List<GoodKeyCodes> _possibleKeys;
     [SerializeField] private int _pressesNeeded = 10;
     [SerializeField] private float _timeToComplete = 5;
     private KeyCode _chosenKey;
@@ -14,7 +30,7 @@ public class ButtonMashQTE : MonoBehaviour
 
     private void Start()
     {
-        _chosenKey = _possibleKeys[Random.Range(0, _possibleKeys.Count)];
+        _chosenKey = (KeyCode) _possibleKeys[Random.Range(0, _possibleKeys.Count)];
         Debug.Log($"QTE Key: {_chosenKey}");
     }
 
