@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,10 +10,10 @@ public class TimingQTE : MonoBehaviour
     [SerializeField] private float _delayToPress = 1.25f;
     [SerializeField] private float _timeToPress = 0.75f;
 
-    [SerializeField] private Text _text;
-    [SerializeField] private GameObject _qteElement;   
+    [SerializeField] private TextMeshProUGUI _text;
+    [SerializeField] private GameObject _qteElement;
 
-   private KeyCode _chosenKey;
+    private KeyCode _chosenKey;
     private bool _passedQTE = false;
 
     // Start is called before the first frame update

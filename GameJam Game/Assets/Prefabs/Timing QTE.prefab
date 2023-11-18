@@ -47,3 +47,6 @@ MonoBehaviour:
   _possibleKeys: 6100000061000000
   _delayToPress: 1.25
   _timeToPress: 0.75
+  _text: {fileID: 0}
+  _qteElement: {fileID: 0}
+  _qteRing: {fileID: 1111084355317070327, guid: e4be94bc9e923014aae2a667e3383cbc, type: 3}
