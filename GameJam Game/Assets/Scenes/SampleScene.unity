@@ -434,8 +434,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bossPrefab: {fileID: 2007506047154827869, guid: 4aa372b5f0390874c8a2bc1766f53857, type: 3}
   _spawnLocation: {fileID: 1067995890}
-  minTime: 5
-  maxTime: 7
+  minTime: 20
+  maxTime: 30
 --- !u!1 &1932124071
 GameObject:
   m_ObjectHideFlags: 0
