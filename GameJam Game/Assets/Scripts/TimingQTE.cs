@@ -1,19 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TimingQTE : MonoBehaviour
 {
     [SerializeField] private List<KeyCode> _possibleKeys;
     [SerializeField] private float _delayToPress = 1.25f;
     [SerializeField] private float _timeToPress = 0.75f;
-    private KeyCode _chosenKey;
+
+    [SerializeField] private Text _text;
+
+   private KeyCode _chosenKey;
     private bool _passedQTE = false;
 
     // Start is called before the first frame update
     void Start()
     {
         _chosenKey = _possibleKeys[Random.Range(0, _possibleKeys.Count)];
+        _text.text = _chosenKey.ToString();
         Debug.Log($"QTE Key: {_chosenKey}");
     }
 

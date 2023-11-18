@@ -12,11 +12,11 @@ public class EnemySpawning : MonoBehaviour
     [SerializeField] private float maxSpawnDelay = 20;
     [SerializeField] private Vector2Int numberSpawnedRange;
     private List<GameObject> _enemiesSpawned = new();
-    private float spawnTimer;
+    private float spawnTimer = 0f;
 
     private void Start()
     {
-        spawnTimer = Random.Range(minSpawnDelay, maxSpawnDelay);
+        //spawnTimer = Random.Range(minSpawnDelay, maxSpawnDelay);
     }
 
     private void FixedUpdate()
@@ -41,7 +41,7 @@ public class EnemySpawning : MonoBehaviour
 
             float playerZ = GameManager.Instance.GetPlayer().transform.position.z;
 
-            while (spawnPoint.z * _spawnDistance < playerZ || Mathf.Abs(spawnPoint.y) > 0.75)
+            while (spawnPoint.z * _spawnDistance < playerZ || Mathf.Abs(spawnPoint.y) > 0.60)
             {
                 spawnPoint = Random.onUnitSphere;
             }
