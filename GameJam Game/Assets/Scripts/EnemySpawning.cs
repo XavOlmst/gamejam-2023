@@ -10,7 +10,7 @@ public class EnemySpawning : MonoBehaviour
     [SerializeField] private float minSpawnDelay = 10;
     [SerializeField] private float maxSpawnDelay = 20;
     [SerializeField] private Vector2Int numberSpawnedRange;
-    private List<GameObject> _enemiesSpawned;
+    private List<GameObject> _enemiesSpawned = new();
     private float spawnTimer;
 
     private void Start()
