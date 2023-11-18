@@ -10,6 +10,7 @@ public class EnemySpawning : MonoBehaviour
     [SerializeField] private float minSpawnDelay = 10;
     [SerializeField] private float maxSpawnDelay = 20;
     [SerializeField] private Vector2Int numberSpawnedRange;
+    private List<GameObject> _enemiesSpawned;
     private float spawnTimer;
 
     private void Start()
@@ -44,7 +45,8 @@ public class EnemySpawning : MonoBehaviour
                 spawnPoint = Random.onUnitSphere;
             }
 
-            Instantiate(_enemyPrefab, spawnPoint * _spawnDistance, Quaternion.identity, transform);
+            GameObject enemy = Instantiate(_enemyPrefab, spawnPoint * _spawnDistance, Quaternion.identity, transform);
+            _enemiesSpawned.Add(enemy);
         }
     }
 }
