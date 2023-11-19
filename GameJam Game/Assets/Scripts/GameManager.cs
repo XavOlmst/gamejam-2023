@@ -74,6 +74,7 @@ public class GameManager : MonoBehaviour
         WriteFile(GetPath(fileName), fileContent);
     }
 
+
     public static List<T> ReadScoreFromFileList<T>(string fileName)
     {
         string fileContent = ReadFile(GetPath(fileName));
