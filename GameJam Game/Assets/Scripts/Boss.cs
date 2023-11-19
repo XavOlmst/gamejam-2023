@@ -10,6 +10,7 @@ public class Boss : MonoBehaviour
 
     private void Start()
     {
+        GameManager.Instance.GetPlayer().transform.LookAt(transform);
         Instantiate(_mashQTE, transform);
     }
 
