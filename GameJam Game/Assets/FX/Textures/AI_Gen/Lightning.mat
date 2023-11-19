@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Lightning
-  m_Shader: {fileID: -6465566751694194690, guid: 271ef2a1f9b0b4a4cb97be74ec9e945a, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 60e9bcc92d9962641ba759a763f5f051, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -90,6 +90,7 @@ Material:
     - _BUILTIN_QueueOffset: 0
     - _BumpScale: 1
     - _ColorStrength: 2.71
+    - _Color_Strength: 3.6
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _Distortion_Amount: 0.012

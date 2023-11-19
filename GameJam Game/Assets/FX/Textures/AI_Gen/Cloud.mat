@@ -97,7 +97,7 @@ Material:
     - _Color_Strength: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _Dissolve_Edge: 3.9
+    - _Dissolve_Edge: 1.95
     - _Distortion_Amount: 0.015
     - _DstBlend: 0
     - _GlossMapScale: 1
