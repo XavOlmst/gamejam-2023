@@ -81,7 +81,7 @@ public class ButtonMashQTE : MonoBehaviour
         GameManager.Instance.GetMashQTEText().enabled = false;
         GameManager.Instance.SetQTEState(false);
 
-        Destroy(transform.parent.parent.gameObject);
+        transform.parent.GetComponent<Animator>().SetTrigger("KillSmelvin");
     }
 
     private IEnumerator WaitforDeathSound()

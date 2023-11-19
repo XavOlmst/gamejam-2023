@@ -29,6 +29,7 @@ public class BossSpawner : MonoBehaviour
             _bossTimer = Random.Range(minTime, maxTime);
 
             GameManager.Instance.GetMusicManager().ChangeSong(_bossMusic, 5);
+            GameManager.Instance.GetEnemySpawner().ClearEnemies();
         }
 
     }

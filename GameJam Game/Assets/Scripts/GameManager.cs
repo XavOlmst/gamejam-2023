@@ -20,7 +20,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _mashQTE;
     [SerializeField] private MusicManager _musicManager;
     [SerializeField] private AudioSource _gameMusic;
-
+    [SerializeField] private EnemySpawning _enemySpawner;
+ 
     [SerializeField] private GameObject player;
 
     private bool _qteActive = false;
@@ -57,6 +58,7 @@ public class GameManager : MonoBehaviour
     }
 
     public GameObject GetPlayer() => player;
+    public EnemySpawning GetEnemySpawner() => _enemySpawner;
     public GameObject GetTimingQTECanvas() => _timingQTECanvas;
     public TMP_Text GetTimingQTEText() => _timingText;
     public GameObject GetTimingQTE() => _timingQTE;

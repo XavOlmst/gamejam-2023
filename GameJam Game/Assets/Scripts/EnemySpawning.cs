@@ -33,7 +33,7 @@ public class EnemySpawning : MonoBehaviour
         }
     }
 
-    private void SpawnEnemies()
+    public void SpawnEnemies()
     {
         int numEnemiesToSpawn = Random.Range(numberSpawnedRange.x, numberSpawnedRange.y);
 
@@ -51,5 +51,19 @@ public class EnemySpawning : MonoBehaviour
             GameObject enemy = Instantiate(_enemyPrefab, spawnPoint * _spawnDistance, Quaternion.identity, transform);
             _enemiesSpawned.Add(enemy);
         }
+    }
+
+    public void ClearEnemies()
+    {
+        foreach(GameObject enemy in _enemiesSpawned)
+        {
+            if(enemy != null)
+            {
+                Destroy(enemy.transform.gameObject);
+            }
+        }
+
+        _enemiesSpawned.Clear();
+        _enemiesSpawned = new();
     }
 }

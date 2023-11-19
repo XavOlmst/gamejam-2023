@@ -26,4 +26,11 @@ public class Boss : MonoBehaviour
         Debug.Log("Changing music back to normal music");
         GameManager.Instance.GetMusicManager().ChangeSong(GameManager.Instance.GetGameMusic(), 5f);
     }
+
+    public void DestroySelf()
+    {
+        GameManager.Instance.AddToScore(1000);
+        GameManager.Instance.GetEnemySpawner().SpawnEnemies();
+        Destroy(transform.parent.gameObject);
+    }
 }

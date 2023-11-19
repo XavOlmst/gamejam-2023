@@ -2243,8 +2243,8 @@ MonoBehaviour:
   _bossMusic: {fileID: 1147112621}
   _bossPrefab: {fileID: 6635261523420407328, guid: aa67d9d29204563499e2c8335125ce4d, type: 3}
   _spawnLocation: {fileID: 1730834545}
-  minTime: 5
-  maxTime: 7
+  minTime: 10
+  maxTime: 15
 --- !u!82 &1147112621
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3357,7 +3357,7 @@ Transform:
   m_GameObject: {fileID: 1730834544}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 40}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3400,6 +3400,7 @@ MonoBehaviour:
   _mashQTE: {fileID: 9052743784930581152, guid: 700f203ec1ac09f44bbfe5c63a50ba6c, type: 3}
   _musicManager: {fileID: 2018466173}
   _gameMusic: {fileID: 2018466175}
+  _enemySpawner: {fileID: 1147112618}
   player: {fileID: 963194225}
   knifeThrow: {fileID: 8300000, guid: 7245b6b564128ea42bb53b3dea0bf167, type: 3}
   knifeHit: {fileID: 8300000, guid: 020bb24dfdcdafe4ca9a911e4e8d696e, type: 3}
