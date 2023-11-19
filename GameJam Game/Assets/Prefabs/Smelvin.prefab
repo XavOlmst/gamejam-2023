@@ -1,5 +1,37 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1116126178396742369
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1417575441750888695}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1417575441750888695
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116126178396742369}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7081304802474785129}
+  m_Father: {fileID: 185527774676430758}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6635261523420407328
 GameObject:
   m_ObjectHideFlags: 0
@@ -29,7 +61,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7081304802474785129}
+  - {fileID: 1417575441750888695}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3335793087413551694
@@ -80,6 +112,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7967355232114221968, guid: c680aa8a19dd01b4cacfd975ce099895, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 59665fd666643cf4e8c564b1be69b0f1, type: 2}
     - target: {fileID: 919132149155446097, guid: c680aa8a19dd01b4cacfd975ce099895, type: 3}
       propertyPath: m_Name
       value: teeth_AAA
@@ -130,19 +166,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 185527774676430758}
+    m_TransformParent: {fileID: 1417575441750888695}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 53c0401506cfefc4dbefe69ffcb33f56, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.1731548
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 53c0401506cfefc4dbefe69ffcb33f56, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 17.9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 53c0401506cfefc4dbefe69ffcb33f56, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 32.15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 53c0401506cfefc4dbefe69ffcb33f56, type: 3}
       propertyPath: m_LocalRotation.w
@@ -173,6 +209,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1533270760432016768, guid: 53c0401506cfefc4dbefe69ffcb33f56, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1533270760432016768, guid: 53c0401506cfefc4dbefe69ffcb33f56, type: 3}
       propertyPath: m_LocalPosition.z
       value: 8.74
       objectReference: {fileID: 0}
@@ -180,6 +220,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: smelvina-aaAAA
       objectReference: {fileID: 0}
+    - target: {fileID: 3351066200166869851, guid: 53c0401506cfefc4dbefe69ffcb33f56, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 77125f80a98c3d147bd1de92ebbfb71b, type: 2}
+    - target: {fileID: 3351066200166869851, guid: 53c0401506cfefc4dbefe69ffcb33f56, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 10e032b00bd4e904aaf2f780fa395e7d, type: 2}
     - target: {fileID: 7452770563138653777, guid: 53c0401506cfefc4dbefe69ffcb33f56, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.39
