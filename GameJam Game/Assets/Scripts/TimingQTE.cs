@@ -78,6 +78,6 @@ public class TimingQTE : MonoBehaviour
         GameManager.Instance.GetQTEText().enabled = false;
         GameManager.Instance.SetQTEState(false);
 
-        Destroy(gameObject);
+        Destroy(transform.parent.gameObject);
     }
 }
