@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text qteText;
     [SerializeField] private GameObject _timingQTE;
     [SerializeField] private GameObject _mashQTE;
+    [SerializeField] private MusicManager _musicManager;
+    [SerializeField] private AudioSource _gameMusic;
 
     [SerializeField] private GameObject player;
 
@@ -49,7 +51,8 @@ public class GameManager : MonoBehaviour
     public GameObject GetMashingQTE() => _timingQTE;
     public void SetQTEState(bool isQTEActive) => _qteActive = isQTEActive;
     public bool IsQTEActive() => _qteActive;
-
+    public MusicManager GetMusicManager() => _musicManager;
+    public AudioSource GetGameMusic() => _gameMusic;
     public int GetHighScore() => highScore;
 
     public void SetHighScore(int highScore) => this.highScore = highScore;

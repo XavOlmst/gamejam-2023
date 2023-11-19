@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TimingQTE : MonoBehaviour
 {
@@ -50,6 +51,7 @@ public class TimingQTE : MonoBehaviour
             {
                 Debug.Log("Failed Timing QTE");
                 FinishQTE();
+                SceneManager.LoadScene("LoseScene");
             }
         }
 
@@ -65,6 +67,7 @@ public class TimingQTE : MonoBehaviour
             {
                 Debug.Log("Failed Timing QTE");
                 FinishQTE();
+                SceneManager.LoadScene("LoseScene");
             }
         }
     }
