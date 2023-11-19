@@ -10,6 +10,14 @@ public class Boss : MonoBehaviour
 
     private void Start()
     {
+        if(GameManager.Instance.IsQTEActive())
+        {
+            GameManager game = GameManager.Instance;
+
+            game.GetTimingQTECanvas().SetActive(false);
+            game.GetTimingQTEText().enabled = false;
+        }
+
         GameManager.Instance.GetPlayer().transform.LookAt(transform);
         Instantiate(_mashQTE, transform);
     }
