@@ -137,3 +137,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 0}
+  _mashQTE: {fileID: 7709154957920522483, guid: 700f203ec1ac09f44bbfe5c63a50ba6c, type: 3}

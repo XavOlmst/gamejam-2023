@@ -37,14 +37,14 @@ public class EnemyMovement : MonoBehaviour
 
         if (Vector3.Distance(transform.position, _target.position) < 15f && !dragonClose)
         {
-            Debug.Log("Almost There!");
+            //Debug.Log("Almost There!");
             dragonClose = true;
             AudioSource.PlayClipAtPoint(_DragonRoar, transform.position);
         }
 
         if (Vector3.Distance(transform.position, _target.position) < 3f)
         {
-            Debug.Log("Reached the player, enable a QTE");
+            //Debug.Log("Reached the player, enable a QTE");
             Instantiate(GameManager.Instance.GetTimingQTE(), transform);
             _target.LookAt(transform);
             //Destroy(gameObject);
