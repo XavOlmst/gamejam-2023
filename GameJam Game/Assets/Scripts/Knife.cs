@@ -49,9 +49,9 @@ public class Knife : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Enemy"))
         {
-            Destroy(collision.gameObject);
-            GameManager.Instance.AddToScore(100);
             AudioSource.PlayClipAtPoint(_knifeHit, transform.position);
+            GameManager.Instance.AddToScore(100);
+            Destroy(collision.transform.parent.gameObject);
             Destroy(gameObject);
         }
     }
