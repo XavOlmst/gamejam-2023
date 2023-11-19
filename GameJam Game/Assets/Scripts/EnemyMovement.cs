@@ -7,8 +7,10 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private Transform _target;
     [SerializeField] private Animator _animator;
     [SerializeField] private int _numAnimations;
-    [SerializeField] private float _moveSpeed;
+    [SerializeField] private float _maxMoveSpeed;
+    [SerializeField] private float _minMoveSpeed;
     private float _animationChangeTimer;
+    private float _moveSpeed;
     private bool dragonClose = false;
 
     [SerializeField] private GameObject _qteElement;
@@ -24,6 +26,8 @@ public class EnemyMovement : MonoBehaviour
         _animationChangeTimer = Random.Range(5, 8f);
 
         transform.LookAt(_target);
+
+        _moveSpeed = Random.Range(_minMoveSpeed, _maxMoveSpeed);
 
         //transform.localRotation = Quaternion.Euler(-transform.forward);
     }
