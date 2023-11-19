@@ -43,6 +43,7 @@ public class TimingQTE : MonoBehaviour
             {
                 Debug.Log("Failed Timing QTE");
                 FinishQTE();
+                SceneManager.LoadScene("LoseScene");
             }
         }
 
@@ -58,7 +59,7 @@ public class TimingQTE : MonoBehaviour
             {
                 Debug.Log("Failed Timing QTE");
                 FinishQTE();
-                SceneManager.LoadScene("LoseMenu");
+                SceneManager.LoadScene("LoseScene");
             }
         }
     }
