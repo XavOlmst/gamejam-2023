@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GoodKeyCodes
 {
@@ -30,7 +31,7 @@ public class ButtonMashQTE : MonoBehaviour
     private MashDisplay _display;
 
     private AudioClip _zapDeath;
-    private AudioSource audioPlayer;
+    [SerializeField] private AudioSource audioPlayer;
 
     private void Start()
     {
@@ -46,8 +47,6 @@ public class ButtonMashQTE : MonoBehaviour
 
         Debug.Log($"QTE Key: {_chosenKey}");
         _zapDeath = GameManager.Instance.GetDeathZapSFX();
-
-        audioPlayer = gameObject.AddComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -71,9 +70,8 @@ public class ButtonMashQTE : MonoBehaviour
         if(_timeToComplete < 0 && _timesPressed < _pressesNeeded && !_passedQTE)
         {
             Debug.Log("Failed Button Mash QTE");
-            audioPlayer.clip = _zapDeath;
-            audioPlayer.Play();
-            FinishQTE();
+            _passedQTE = true;
+            StartCoroutine(WaitforDeathSound());
         }
     }
 
@@ -84,5 +82,19 @@ public class ButtonMashQTE : MonoBehaviour
         GameManager.Instance.SetQTEState(false);
 
         Destroy(transform.parent.gameObject);
+    }
+
+    private IEnumerator WaitforDeathSound()
+    {
+        audioPlayer.Stop();
+        audioPlayer.clip = _zapDeath;
+        AudioSource.PlayClipAtPoint(_zapDeath, GameManager.Instance.GetPlayer().transform.position);
+
+        Debug.Log(audioPlayer.clip);
+        yield return new WaitForSeconds(_zapDeath.length);
+
+        FinishQTE();
+        GameManager.Instance.SetQTEState(true);
+        SceneManager.LoadScene("LoseScene");
     }
 }
