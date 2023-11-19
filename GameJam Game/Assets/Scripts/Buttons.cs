@@ -12,7 +12,7 @@ public class Buttons : MonoBehaviour
 
     public void MainMenu()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("TitleScreen");
     }
 
     public void Quit()

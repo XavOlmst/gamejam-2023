@@ -508,7 +508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: {fileID: 1364867773}
   maxCount: 5
-  filename: Highscore.json
+  filename: Highscores.json
 --- !u!1 &577920502
 GameObject:
   m_ObjectHideFlags: 0

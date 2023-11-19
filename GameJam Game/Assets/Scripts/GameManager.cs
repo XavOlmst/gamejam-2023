@@ -40,6 +40,10 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] AudioClip thunder3;
 
+    [SerializeField] AudioClip deathChomp;
+
+    [SerializeField] AudioClip deathZap;
+
     private void Awake()
     {
         if (Instance == null)
@@ -123,6 +127,8 @@ public class GameManager : MonoBehaviour
     public AudioClip GetThunder1SFX() => thunder1;
     public AudioClip GetThunder2SFX() => thunder2;
     public AudioClip GetThunder3SFX() => thunder3;
+    public AudioClip GetDeathChompSFX() => deathChomp;
+    public AudioClip GetDeathZapSFX() => deathZap;
 
     public static class JsonHelper
     {

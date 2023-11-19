@@ -28,6 +28,9 @@ public class ButtonMashQTE : MonoBehaviour
     private int _timesPressed = 0;
     private bool _passedQTE = false;
 
+    private AudioClip _zapDeath;
+    private AudioSource audioPlayer;
+
     private void Start()
     {
         _chosenKey = (KeyCode) _possibleKeys[Random.Range(0, _possibleKeys.Count)];
@@ -37,6 +40,9 @@ public class ButtonMashQTE : MonoBehaviour
         GameManager.Instance.SetQTEState(true);
 
         Debug.Log($"QTE Key: {_chosenKey}");
+        _zapDeath = GameManager.Instance.GetDeathZapSFX();
+
+        audioPlayer = gameObject.AddComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -59,6 +65,8 @@ public class ButtonMashQTE : MonoBehaviour
         if(_timeToComplete < 0 && _timesPressed < _pressesNeeded && !_passedQTE)
         {
             Debug.Log("Failed Button Mash QTE");
+            audioPlayer.clip = _zapDeath;
+            audioPlayer.Play();
             FinishQTE();
         }
     }

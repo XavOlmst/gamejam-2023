@@ -1607,6 +1607,8 @@ MonoBehaviour:
   thunder1: {fileID: 8300000, guid: 7a673092e51c0964898c33d311261586, type: 3}
   thunder2: {fileID: 8300000, guid: 72c59436c68808c478302a9d4851d5f3, type: 3}
   thunder3: {fileID: 8300000, guid: 60ce977ec3124ab418c4195a97a901bb, type: 3}
+  deathChomp: {fileID: 8300000, guid: 247bb0413a1e42c4d95910f06acfa49b, type: 3}
+  deathZap: {fileID: 8300000, guid: 17e95611247bcdb40b042b957568221b, type: 3}
 --- !u!4 &1932124073
 Transform:
   m_ObjectHideFlags: 0
