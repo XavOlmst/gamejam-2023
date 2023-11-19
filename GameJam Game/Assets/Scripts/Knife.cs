@@ -9,6 +9,8 @@ public class Knife : MonoBehaviour
     [SerializeField] private Rigidbody _rb;
     private float _lifeTime = 10f;
 
+    private AudioClip _knifeHit;
+
     private void Start()
     {
         if(!_rb)
@@ -20,6 +22,8 @@ public class Knife : MonoBehaviour
         {
             _rb.velocity = transform.forward * _minSpeed;
         }
+
+        _knifeHit = GameManager.Instance.GetKnifeHitSFX();
     }
 
     private void Update()
@@ -37,8 +41,9 @@ public class Knife : MonoBehaviour
         if(collision.gameObject.CompareTag("Enemy"))
         {
             Destroy(collision.gameObject);
-            Destroy(gameObject);
             GameManager.Instance.AddToScore(100);
+            AudioSource.PlayClipAtPoint(_knifeHit, transform.position);
+            Destroy(gameObject);
         }
     }
 

@@ -10,6 +10,8 @@ public class TimingQTE : MonoBehaviour
     [SerializeField] private float _delayToPress = 1.25f;
     [SerializeField] private float _timeToPress = 0.75f;
 
+    private AudioClip _qteStart;
+
     [SerializeField] private TextMeshProUGUI _text;
     [SerializeField] private GameObject _qteElement;
 
@@ -25,6 +27,12 @@ public class TimingQTE : MonoBehaviour
         GameManager.Instance.GetQTEText().text = _chosenKey.ToString();
         GameManager.Instance.SetQTEState(true);
         Debug.Log($"QTE Key: {_chosenKey}");
+
+        _qteStart = GameManager.Instance.GetQTEStartSFX();
+
+        AudioSource audioPlayer = gameObject.AddComponent<AudioSource>();
+        audioPlayer.clip = _qteStart;
+        audioPlayer.Play();
     }
 
     // Update is called once per frame

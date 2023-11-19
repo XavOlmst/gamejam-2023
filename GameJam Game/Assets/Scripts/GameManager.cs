@@ -17,9 +17,20 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _timingQTE;
     [SerializeField] private GameObject _mashQTE;
 
+    [SerializeField] private GameObject player;
+
     private bool _qteActive = false;
     private int highScore = 0;
     private int score = 0;
+
+    [Header("AudioClips")]
+    [SerializeField] AudioClip knifeThrow;
+
+    [SerializeField] AudioClip knifeHit;
+
+    [SerializeField] AudioClip miniDragonRoar;
+
+    [SerializeField] AudioClip qteStart;
 
     private void Awake()
     {
@@ -30,8 +41,6 @@ public class GameManager : MonoBehaviour
 
         //End Singleton
     }
-
-    [SerializeField] private GameObject player;
 
     public GameObject GetPlayer() => player;
     public GameObject GetQTECanvas() => QTECanvas;
@@ -97,6 +106,11 @@ public class GameManager : MonoBehaviour
         return "";
     }
 
+    public AudioClip GetKnifeThrowSFX() => knifeThrow;
+    public AudioClip GetKnifeHitSFX() => knifeHit;
+    public AudioClip GetMiniDragonRoarSFX() => miniDragonRoar;
+    public AudioClip GetQTEStartSFX() => qteStart;
+
     public static class JsonHelper
     {
         public static T[] FromJson<T>(string json)
@@ -124,5 +138,6 @@ public class GameManager : MonoBehaviour
         {
             public T[] Items;
         }
+
     }
 }
