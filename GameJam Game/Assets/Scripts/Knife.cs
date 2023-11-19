@@ -9,7 +9,10 @@ public class Knife : MonoBehaviour
     [SerializeField] private Rigidbody _rb;
     private float _lifeTime = 10f;
 
+    [SerializeField] private AudioSource _audioSource;
+
     private AudioClip _knifeHit;
+    private AudioClip _knifeSwoosh;
 
     private void Start()
     {
@@ -24,6 +27,12 @@ public class Knife : MonoBehaviour
         }
 
         _knifeHit = GameManager.Instance.GetKnifeHitSFX();
+        _knifeSwoosh = GameManager.Instance.GetKnifeThrowSFX();
+
+
+        _audioSource.clip = _knifeSwoosh;
+        _audioSource.loop = true;
+        _audioSource.Play();
     }
 
     private void Update()
