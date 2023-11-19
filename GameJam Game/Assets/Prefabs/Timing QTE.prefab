@@ -44,9 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eebd6ec02220d664e99580ce12b080e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _possibleKeys: 6100000061000000
+  _possibleKeys: 71000000770000006500000072000000610000007300000064000000660000007a000000780000006300000076000000
   _delayToPress: 1.25
   _timeToPress: 0.75
   _text: {fileID: 0}
   _qteElement: {fileID: 0}
-  _qteRing: {fileID: 1111084355317070327, guid: e4be94bc9e923014aae2a667e3383cbc, type: 3}
