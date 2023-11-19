@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BossSpawner : MonoBehaviour
 {
+    [SerializeField] private AudioSource _bossMusic;
     [SerializeField] private GameObject _bossPrefab;
     [SerializeField] private Transform _spawnLocation;
     [SerializeField] private float minTime = 30f;
@@ -26,6 +27,8 @@ public class BossSpawner : MonoBehaviour
         {
             Instantiate(_bossPrefab, _spawnLocation.position, Quaternion.identity);
             _bossTimer = Random.Range(minTime, maxTime);
+
+            GameManager.Instance.GetMusicManager().ChangeSong(_bossMusic, 5);
         }
 
     }
