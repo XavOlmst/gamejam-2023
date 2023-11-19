@@ -9,13 +9,18 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private int _numAnimations;
     [SerializeField] private float _moveSpeed;
     private float _animationChangeTimer;
+    private bool dragonClose = false;
 
     [SerializeField] private GameObject _qteElement;
+
+    private AudioClip _DragonRoar;
 
     //This is temporary
     private void Start()
     {
         _target = GameManager.Instance.GetPlayer().transform;
+
+        _DragonRoar = GameManager.Instance.GetMiniDragonRoarSFX();
 
         _animationChangeTimer = Random.Range(1, 3f);
     }
@@ -27,11 +32,19 @@ public class EnemyMovement : MonoBehaviour
 
         transform.position = Vector3.MoveTowards(transform.position, _target.position, _moveSpeed * Time.deltaTime);
 
-        if(Vector3.Distance(transform.position, _target.position) < 0.1f)
+        if (Vector3.Distance(transform.position, _target.position) < 15f && !dragonClose)
+        {
+            Debug.Log("Almost There!");
+            dragonClose = true;
+            AudioSource.PlayClipAtPoint(_DragonRoar, transform.position);
+        }
+
+        if (Vector3.Distance(transform.position, _target.position) < 0.1f)
         {
             Debug.Log("Reached the player, enable a QTE");
-            Instantiate(GameManager.Instance.GetTimingQTE());
-            Destroy(gameObject);
+            Instantiate(GameManager.Instance.GetTimingQTE(), transform);
+            _target.LookAt(transform);
+            //Destroy(gameObject);
         }
 
 

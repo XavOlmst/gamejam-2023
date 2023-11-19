@@ -16,10 +16,29 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text qteText;
     [SerializeField] private GameObject _timingQTE;
     [SerializeField] private GameObject _mashQTE;
+    [SerializeField] private MusicManager _musicManager;
+    [SerializeField] private AudioSource _gameMusic;
+
+    [SerializeField] private GameObject player;
 
     private bool _qteActive = false;
     private int highScore = 0;
     private int score = 0;
+
+    [Header("AudioClips")]
+    [SerializeField] AudioClip knifeThrow;
+
+    [SerializeField] AudioClip knifeHit;
+
+    [SerializeField] AudioClip miniDragonRoar;
+
+    [SerializeField] AudioClip qteStart;
+
+    [SerializeField] AudioClip thunder1;
+
+    [SerializeField] AudioClip thunder2;
+
+    [SerializeField] AudioClip thunder3;
 
     private void Awake()
     {
@@ -31,8 +50,6 @@ public class GameManager : MonoBehaviour
         //End Singleton
     }
 
-    [SerializeField] private GameObject player;
-
     public GameObject GetPlayer() => player;
     public GameObject GetQTECanvas() => QTECanvas;
     public TMP_Text GetQTEText() => qteText;
@@ -40,7 +57,8 @@ public class GameManager : MonoBehaviour
     public GameObject GetMashingQTE() => _timingQTE;
     public void SetQTEState(bool isQTEActive) => _qteActive = isQTEActive;
     public bool IsQTEActive() => _qteActive;
-
+    public MusicManager GetMusicManager() => _musicManager;
+    public AudioSource GetGameMusic() => _gameMusic;
     public int GetHighScore() => highScore;
 
     public void SetHighScore(int highScore) => this.highScore = highScore;
@@ -55,6 +73,7 @@ public class GameManager : MonoBehaviour
         string fileContent = JsonHelper.ToJson<T>(toSave.ToArray());
         WriteFile(GetPath(fileName), fileContent);
     }
+
 
     public static List<T> ReadScoreFromFileList<T>(string fileName)
     {
@@ -97,6 +116,14 @@ public class GameManager : MonoBehaviour
         return "";
     }
 
+    public AudioClip GetKnifeThrowSFX() => knifeThrow;
+    public AudioClip GetKnifeHitSFX() => knifeHit;
+    public AudioClip GetMiniDragonRoarSFX() => miniDragonRoar;
+    public AudioClip GetQTEStartSFX() => qteStart;
+    public AudioClip GetThunder1SFX() => thunder1;
+    public AudioClip GetThunder2SFX() => thunder2;
+    public AudioClip GetThunder3SFX() => thunder3;
+
     public static class JsonHelper
     {
         public static T[] FromJson<T>(string json)
@@ -124,5 +151,6 @@ public class GameManager : MonoBehaviour
         {
             public T[] Items;
         }
+
     }
 }
