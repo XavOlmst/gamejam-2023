@@ -48,8 +48,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 0}
   _animator: {fileID: 1684314556275187135}
-  _numAnimations: 6
-  _moveSpeed: 2
+  _numAnimations: 3
+  _maxMoveSpeed: 4
+  _minMoveSpeed: 1.5
   _qteElement: {fileID: 0}
 --- !u!136 &5082423787935006416
 CapsuleCollider:

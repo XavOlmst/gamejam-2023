@@ -10,11 +10,8 @@ public class ThunderPlay : MonoBehaviour
 
     [SerializeField] private AudioSource thunderSource;
 
-    private int randomNum = 0;
-
     private void Start()
     {
-        ThunderRandom();
         StartCoroutine(waitLightning());
 
         thunder1 = GameManager.Instance.GetThunder1SFX();
@@ -22,15 +19,9 @@ public class ThunderPlay : MonoBehaviour
         thunder3 = GameManager.Instance.GetThunder3SFX();
     }
 
-    private void ThunderRandom()
-    {
-        randomNum = Random.Range(20, 85);
-        
-    }
-
     private IEnumerator waitLightning()
     {
-        Debug.Log(randomNum);
+        var randomNum = Random.Range(20, 85);
         yield return new WaitForSeconds(randomNum);
 
         int thunderNum = Random.Range(1, 4);
@@ -51,7 +42,6 @@ public class ThunderPlay : MonoBehaviour
         }
 
         thunderSource.Play();
-        ThunderRandom();
         StartCoroutine(waitLightning());
     }
 }

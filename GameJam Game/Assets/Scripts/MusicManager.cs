@@ -7,7 +7,6 @@ public class MusicManager : MonoBehaviour
     [SerializeField] private AudioSource _currentSong;
     private AudioSource _nextSong = new();
     private float _fadeRate;
-    private bool _changingSong = false;
 
     public AudioSource CurrentSong
     {

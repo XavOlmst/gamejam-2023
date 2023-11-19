@@ -27,16 +27,16 @@ public class TimingQTE : MonoBehaviour
     void Start()
     {
         _chosenKey = (KeyCode)_possibleKeys[Random.Range(0, _possibleKeys.Count)];
-        GameManager.Instance.GetQTECanvas().SetActive(true);
-        GameManager.Instance.GetQTEText().enabled = true;
-        GameManager.Instance.GetQTEText().text = _chosenKey.ToString();
+        GameManager.Instance.GetTimingQTECanvas().SetActive(true);
+        GameManager.Instance.GetTimingQTEText().enabled = true;
+        GameManager.Instance.GetTimingQTEText().text = _chosenKey.ToString();
         GameManager.Instance.SetQTEState(true);
         Debug.Log($"QTE Key: {_chosenKey}");
 
         _qteStart = GameManager.Instance.GetQTEStartSFX();
         _chompDeath = GameManager.Instance.GetDeathChompSFX();
 
-        QTERing ring = GameManager.Instance.GetQTECanvas().GetComponentInChildren<QTERing>();
+        QTERing ring = GameManager.Instance.GetTimingQTECanvas().GetComponentInChildren<QTERing>();
 
         ring.intialDelay = _delayToPress;
         ring.pressedDelay = _timeToPress;
@@ -59,7 +59,8 @@ public class TimingQTE : MonoBehaviour
             else
             {
                 Debug.Log("Failed Timing QTE");
-                GameManager.Instance.GetQTECanvas().SetActive(false);
+                GameManager.Instance.GetTimingQTECanvas().SetActive(false);
+                _passedQTE = true;
                 StartCoroutine(WaitforDeathSound());
             }
         }
@@ -75,6 +76,7 @@ public class TimingQTE : MonoBehaviour
             if(_timeToPress < 0)
             {
                 Debug.Log("Failed Timing QTE");
+                _passedQTE = true;
                 StartCoroutine(WaitforDeathSound());
             }
         }
@@ -82,8 +84,8 @@ public class TimingQTE : MonoBehaviour
 
     public void FinishQTE()
     {
-        GameManager.Instance.GetQTECanvas().SetActive(false);
-        GameManager.Instance.GetQTEText().enabled = false;
+        GameManager.Instance.GetTimingQTECanvas().SetActive(false);
+        GameManager.Instance.GetTimingQTEText().enabled = false;
         GameManager.Instance.SetQTEState(false);
 
         Destroy(transform.parent.gameObject);
