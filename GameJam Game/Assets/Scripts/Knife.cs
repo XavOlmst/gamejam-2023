@@ -36,7 +36,7 @@ public class Knife : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Enemy"))
         {
-            Destroy(collision.gameObject);
+            Destroy(collision.transform.parent.gameObject);
             Destroy(gameObject);
             GameManager.Instance.AddToScore(100);
         }

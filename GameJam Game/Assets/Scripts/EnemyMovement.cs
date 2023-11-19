@@ -27,11 +27,12 @@ public class EnemyMovement : MonoBehaviour
 
         transform.position = Vector3.MoveTowards(transform.position, _target.position, _moveSpeed * Time.deltaTime);
 
-        if(Vector3.Distance(transform.position, _target.position) < 0.1f)
+        if(Vector3.Distance(transform.position, _target.position) < 1f)
         {
             Debug.Log("Reached the player, enable a QTE");
-            Instantiate(GameManager.Instance.GetTimingQTE());
-            Destroy(gameObject);
+            Instantiate(GameManager.Instance.GetTimingQTE(), transform);
+            _target.LookAt(transform);
+            //Destroy(gameObject);
         }
 
 
