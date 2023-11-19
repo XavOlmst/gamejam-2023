@@ -12,12 +12,16 @@ public class TimingQTE : MonoBehaviour
     [SerializeField] private float _timeToPress = 0.75f;
 
     private AudioClip _qteStart;
+    private AudioClip _chompDeath;
 
     [SerializeField] private TextMeshProUGUI _text;
     [SerializeField] private GameObject _qteElement;
 
     private KeyCode _chosenKey;
     private bool _passedQTE = false;
+
+    [SerializeField] private AudioSource audioPlayer;
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,8 +34,13 @@ public class TimingQTE : MonoBehaviour
         Debug.Log($"QTE Key: {_chosenKey}");
 
         _qteStart = GameManager.Instance.GetQTEStartSFX();
+        _chompDeath = GameManager.Instance.GetDeathChompSFX();
 
-        AudioSource audioPlayer = gameObject.AddComponent<AudioSource>();
+        QTERing ring = GameManager.Instance.GetQTECanvas().GetComponentInChildren<QTERing>();
+
+        ring.intialDelay = _delayToPress;
+        ring.pressedDelay = _timeToPress;
+
         audioPlayer.clip = _qteStart;
         audioPlayer.Play();
     }
@@ -39,9 +48,9 @@ public class TimingQTE : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(_chosenKey) && !_passedQTE)
+        if(Input.anyKeyDown && !_passedQTE)
         {
-            if(_delayToPress < 0 && _timeToPress > 0)
+            if(Input.GetKeyDown(_chosenKey) && _delayToPress < 0 && _timeToPress > 0)
             {
                 Debug.Log("Passed Timing QTE");
                 _passedQTE = true;
@@ -50,8 +59,8 @@ public class TimingQTE : MonoBehaviour
             else
             {
                 Debug.Log("Failed Timing QTE");
-                FinishQTE();
-                SceneManager.LoadScene("LoseScene");
+                GameManager.Instance.GetQTECanvas().SetActive(false);
+                StartCoroutine(WaitforDeathSound());
             }
         }
 
@@ -66,8 +75,7 @@ public class TimingQTE : MonoBehaviour
             if(_timeToPress < 0)
             {
                 Debug.Log("Failed Timing QTE");
-                FinishQTE();
-                SceneManager.LoadScene("LoseScene");
+                StartCoroutine(WaitforDeathSound());
             }
         }
     }
@@ -79,5 +87,19 @@ public class TimingQTE : MonoBehaviour
         GameManager.Instance.SetQTEState(false);
 
         Destroy(transform.parent.gameObject);
+    }
+
+    private IEnumerator WaitforDeathSound() 
+    {
+        audioPlayer.Stop();
+        audioPlayer.clip = _chompDeath;
+        AudioSource.PlayClipAtPoint(_chompDeath, GameManager.Instance.GetPlayer().transform.position);
+
+        Debug.Log(audioPlayer.clip);
+        yield return new WaitForSeconds(_chompDeath.length);
+
+        FinishQTE();
+        GameManager.Instance.SetQTEState(true);
+        SceneManager.LoadScene("LoseScene");
     }
 }

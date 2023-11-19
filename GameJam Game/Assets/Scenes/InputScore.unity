@@ -1661,7 +1661,16 @@ MonoBehaviour:
   qteText: {fileID: 0}
   _timingQTE: {fileID: 0}
   _mashQTE: {fileID: 0}
+  _musicManager: {fileID: 0}
+  _gameMusic: {fileID: 0}
   player: {fileID: 2073680527}
+  knifeThrow: {fileID: 0}
+  knifeHit: {fileID: 0}
+  miniDragonRoar: {fileID: 0}
+  qteStart: {fileID: 0}
+  thunder1: {fileID: 0}
+  thunder2: {fileID: 0}
+  thunder3: {fileID: 0}
 --- !u!4 &1899530665
 Transform:
   m_ObjectHideFlags: 0
@@ -2160,6 +2169,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 2073680530}
   - {fileID: 293588279}
+  - {fileID: 1899530665}
   - {fileID: 2062935967}
   - {fileID: 9304004}
-  - {fileID: 1899530665}
