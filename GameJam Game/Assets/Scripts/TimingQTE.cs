@@ -48,7 +48,7 @@ public class TimingQTE : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.anyKeyDown && !_passedQTE)
+        if(!Input.GetMouseButtonDown(0) && Input.anyKeyDown && !_passedQTE)
         {
             if(Input.GetKeyDown(_chosenKey) && _delayToPress < 0 && _timeToPress > 0)
             {
