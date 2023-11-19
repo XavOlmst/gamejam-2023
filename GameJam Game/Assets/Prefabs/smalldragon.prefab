@@ -167,6 +167,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7ff65e3d024db5e4180f4b0a4886e2d8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 10e032b00bd4e904aaf2f780fa395e7d, type: 2}
     - target: {fileID: 919132149155446097, guid: 7ff65e3d024db5e4180f4b0a4886e2d8, type: 3}
       propertyPath: m_Name
       value: rightwing
@@ -262,6 +266,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: enemytype_dragon
       objectReference: {fileID: 0}
+    - target: {fileID: 9015690974680931539, guid: e97bb5391f88e0e46b6ac86ae97aa50f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a224e2010dc20ac4cb3ea69266d43ca3, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -367,6 +375,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 77fe427d7a6fbc141aaaa4095a6d840e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 10e032b00bd4e904aaf2f780fa395e7d, type: 2}
     - target: {fileID: 919132149155446097, guid: 77fe427d7a6fbc141aaaa4095a6d840e, type: 3}
       propertyPath: m_Name
       value: leftwing
