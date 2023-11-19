@@ -37,6 +37,15 @@ public class Knife : MonoBehaviour
 
     private void Update()
     {
+        if(!GameManager.Instance.IsQTEActive())
+        {
+            _rb.isKinematic = false;
+        }
+        else
+        {
+            _rb.isKinematic = true;
+        }
+
         _lifeTime -= Time.deltaTime;
 
         if(_lifeTime < 0)
