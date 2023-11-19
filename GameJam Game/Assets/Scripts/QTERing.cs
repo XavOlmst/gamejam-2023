@@ -37,7 +37,7 @@ public class QTERing : MonoBehaviour
 
         if(transform.localScale.x <= 0 || transform.localScale.y <= 0)
         {
-            Destroy(innerRing);
+            innerRing.SetActive(false);
         }
     }
 }
