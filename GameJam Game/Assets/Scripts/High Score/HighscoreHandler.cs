@@ -12,12 +12,24 @@ public class HighscoreHandler : MonoBehaviour
     [SerializeField] int maxCount = 7;
     [SerializeField] string filename;
 
+    private bool alreadyEntered = false;
+
     public delegate void OnHighscoreListChanged(List<HighscoreElement> list);
     public static event OnHighscoreListChanged onHighscoreListChanged;
 
     private void Start()
     {
         LoadHighscores();
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyUp(KeyCode.Return) && !alreadyEntered) 
+        {
+            Debug.Log("Joe mama");
+            alreadyEntered = true;
+            StopGame();
+        }
     }
 
     public void StopGame()

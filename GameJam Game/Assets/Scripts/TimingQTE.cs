@@ -12,12 +12,16 @@ public class TimingQTE : MonoBehaviour
     [SerializeField] private float _timeToPress = 0.75f;
 
     private AudioClip _qteStart;
+    private AudioClip _chompDeath;
 
     [SerializeField] private TextMeshProUGUI _text;
     [SerializeField] private GameObject _qteElement;
 
     private KeyCode _chosenKey;
     private bool _passedQTE = false;
+
+    [SerializeField] private AudioSource audioPlayer;
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,8 +34,8 @@ public class TimingQTE : MonoBehaviour
         Debug.Log($"QTE Key: {_chosenKey}");
 
         _qteStart = GameManager.Instance.GetQTEStartSFX();
+        _chompDeath = GameManager.Instance.GetDeathChompSFX();
 
-        AudioSource audioPlayer = gameObject.AddComponent<AudioSource>();
         audioPlayer.clip = _qteStart;
         audioPlayer.Play();
     }
@@ -50,8 +54,7 @@ public class TimingQTE : MonoBehaviour
             else
             {
                 Debug.Log("Failed Timing QTE");
-                FinishQTE();
-                SceneManager.LoadScene("LoseScene");
+                StartCoroutine(WaitforDeathSound());
             }
         }
 
@@ -66,8 +69,7 @@ public class TimingQTE : MonoBehaviour
             if(_timeToPress < 0)
             {
                 Debug.Log("Failed Timing QTE");
-                FinishQTE();
-                SceneManager.LoadScene("LoseScene");
+                StartCoroutine(WaitforDeathSound());
             }
         }
     }
@@ -79,5 +81,18 @@ public class TimingQTE : MonoBehaviour
         GameManager.Instance.SetQTEState(false);
 
         Destroy(transform.parent.gameObject);
+    }
+
+    private IEnumerator WaitforDeathSound() 
+    {
+        audioPlayer.Stop();
+        audioPlayer.clip = _chompDeath;
+        AudioSource.PlayClipAtPoint(_chompDeath, GameManager.Instance.GetPlayer().transform.position);
+
+        Debug.Log(audioPlayer.clip);
+        yield return new WaitForSeconds(_chompDeath.length);
+
+        FinishQTE();
+        SceneManager.LoadScene("LoseScene");
     }
 }
