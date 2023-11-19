@@ -206,9 +206,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 196740210}
         m_TargetAssemblyTypeName: Buttons, Assembly-CSharp
-        m_MethodName: Quit
+        m_MethodName: Credits
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -342,6 +342,7 @@ GameObject:
   - component: {fileID: 196740207}
   - component: {fileID: 196740209}
   - component: {fileID: 196740208}
+  - component: {fileID: 196740210}
   m_Layer: 5
   m_Name: BackgroundImage
   m_TagString: Untagged
@@ -406,6 +407,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 196740206}
   m_CullTransparentMesh: 1
+--- !u!114 &196740210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196740206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6dc27eba9cc95144ba7b1824380d46d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &399772115
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1718,7 +1731,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 196740210}
         m_TargetAssemblyTypeName: Buttons, Assembly-CSharp
         m_MethodName: Play
         m_Mode: 1
@@ -2191,7 +2204,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 196740210}
         m_TargetAssemblyTypeName: Buttons, Assembly-CSharp
         m_MethodName: Quit
         m_Mode: 1
