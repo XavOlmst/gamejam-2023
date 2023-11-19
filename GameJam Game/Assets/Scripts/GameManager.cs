@@ -34,6 +34,12 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] AudioClip qteStart;
 
+    [SerializeField] AudioClip thunder1;
+
+    [SerializeField] AudioClip thunder2;
+
+    [SerializeField] AudioClip thunder3;
+
     private void Awake()
     {
         if (Instance == null)
@@ -113,6 +119,9 @@ public class GameManager : MonoBehaviour
     public AudioClip GetKnifeHitSFX() => knifeHit;
     public AudioClip GetMiniDragonRoarSFX() => miniDragonRoar;
     public AudioClip GetQTEStartSFX() => qteStart;
+    public AudioClip GetThunder1SFX() => thunder1;
+    public AudioClip GetThunder2SFX() => thunder2;
+    public AudioClip GetThunder3SFX() => thunder3;
 
     public static class JsonHelper
     {
