@@ -12,8 +12,10 @@ public class GameManager : MonoBehaviour
     //Start Signleton
     public static GameManager Instance;
 
-    [SerializeField] private GameObject QTECanvas;
-    [SerializeField] private TMP_Text qteText;
+    [SerializeField] private GameObject _timingQTECanvas;
+    [SerializeField] private TMP_Text _timingText;
+    [SerializeField] private GameObject _mashQTECanvas;
+    [SerializeField] private TMP_Text _mashText;
     [SerializeField] private GameObject _timingQTE;
     [SerializeField] private GameObject _mashQTE;
     [SerializeField] private MusicManager _musicManager;
@@ -55,10 +57,12 @@ public class GameManager : MonoBehaviour
     }
 
     public GameObject GetPlayer() => player;
-    public GameObject GetQTECanvas() => QTECanvas;
-    public TMP_Text GetQTEText() => qteText;
+    public GameObject GetTimingQTECanvas() => _timingQTECanvas;
+    public TMP_Text GetTimingQTEText() => _timingText;
     public GameObject GetTimingQTE() => _timingQTE;
-    public GameObject GetMashingQTE() => _timingQTE;
+    public GameObject GetMashQTECanvas() => _mashQTECanvas;
+    public TMP_Text GetMashQTEText() => _mashText;
+    public GameObject GetMashingQTE() => _mashQTE;
     public void SetQTEState(bool isQTEActive) => _qteActive = isQTEActive;
     public bool IsQTEActive() => _qteActive;
     public MusicManager GetMusicManager() => _musicManager;

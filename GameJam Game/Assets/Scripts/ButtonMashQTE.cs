@@ -27,6 +27,7 @@ public class ButtonMashQTE : MonoBehaviour
     private KeyCode _chosenKey;
     private int _timesPressed = 0;
     private bool _passedQTE = false;
+    private MashDisplay _display;
 
     private AudioClip _zapDeath;
     private AudioSource audioPlayer;
@@ -34,10 +35,14 @@ public class ButtonMashQTE : MonoBehaviour
     private void Start()
     {
         _chosenKey = (KeyCode) _possibleKeys[Random.Range(0, _possibleKeys.Count)];
-        GameManager.Instance.GetQTECanvas().SetActive(true);
-        GameManager.Instance.GetQTEText().enabled = true;
-        GameManager.Instance.GetQTEText().text = _chosenKey.ToString();
+        GameManager.Instance.GetMashQTECanvas().SetActive(true);
+        GameManager.Instance.GetMashQTEText().enabled = true;
+        GameManager.Instance.GetMashQTEText().text = _chosenKey.ToString();
         GameManager.Instance.SetQTEState(true);
+
+        _display = GameManager.Instance.GetMashQTECanvas().GetComponent<MashDisplay>();
+        _display.SetKeyPresses(_pressesNeeded);
+        _display.SetTimeToComplete(_timeToComplete);
 
         Debug.Log($"QTE Key: {_chosenKey}");
         _zapDeath = GameManager.Instance.GetDeathZapSFX();
@@ -51,6 +56,7 @@ public class ButtonMashQTE : MonoBehaviour
         if(Input.GetKeyDown(_chosenKey) && !_passedQTE)
         {
             _timesPressed++;
+            _display.AddKeyPress();
 
             if(_timesPressed >= _pressesNeeded && _timeToComplete >= 0)
             {
@@ -73,8 +79,8 @@ public class ButtonMashQTE : MonoBehaviour
 
     public void FinishQTE()
     {
-        GameManager.Instance.GetQTECanvas().SetActive(false);
-        GameManager.Instance.GetQTEText().enabled = false;
+        GameManager.Instance.GetMashQTECanvas().SetActive(false);
+        GameManager.Instance.GetMashQTEText().enabled = false;
         GameManager.Instance.SetQTEState(false);
 
         Destroy(transform.parent.gameObject);

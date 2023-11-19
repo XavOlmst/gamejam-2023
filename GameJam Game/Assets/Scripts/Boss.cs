@@ -5,6 +5,13 @@ using UnityEngine;
 public class Boss : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
+    [SerializeField] private ButtonMashQTE _mashQTE;
+
+
+    private void Start()
+    {
+        Instantiate(_mashQTE, transform);
+    }
 
     private void OnDestroy()
     {
