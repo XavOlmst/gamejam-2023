@@ -60,6 +60,7 @@ public class ButtonMashQTE : MonoBehaviour
             if(_timesPressed >= _pressesNeeded && _timeToComplete >= 0)
             {
                 Debug.Log("Passed Button Mash QTE");
+                ScoreStore.instance.StoreScore();
                 _passedQTE = true;
                 FinishQTE();
             }
@@ -70,6 +71,7 @@ public class ButtonMashQTE : MonoBehaviour
         if(_timeToComplete < 0 && _timesPressed < _pressesNeeded && !_passedQTE)
         {
             Debug.Log("Failed Button Mash QTE");
+            ScoreStore.instance.StoreScore();
             _passedQTE = true;
             StartCoroutine(WaitforDeathSound());
         }

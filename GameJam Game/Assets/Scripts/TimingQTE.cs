@@ -60,6 +60,7 @@ public class TimingQTE : MonoBehaviour
             {
                 Debug.Log("Failed Timing QTE");
                 GameManager.Instance.GetTimingQTECanvas().SetActive(false);
+                ScoreStore.instance.StoreScore();
                 _passedQTE = true;
                 StartCoroutine(WaitforDeathSound());
             }
@@ -76,6 +77,7 @@ public class TimingQTE : MonoBehaviour
             if(_timeToPress < 0)
             {
                 Debug.Log("Failed Timing QTE");
+                ScoreStore.instance.StoreScore();
                 _passedQTE = true;
                 StartCoroutine(WaitforDeathSound());
             }

@@ -404,6 +404,7 @@ GameObject:
   - component: {fileID: 252367853}
   - component: {fileID: 252367852}
   - component: {fileID: 252367856}
+  - component: {fileID: 252367857}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -509,6 +510,21 @@ MonoBehaviour:
   playerName: {fileID: 1364867773}
   maxCount: 5
   filename: Highscores.json
+--- !u!114 &252367857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252367851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a18661fd618ec444cb90af3e1ad7f8b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 1727075668}
+  score: 0
+  count: 0
 --- !u!1 &384209468
 GameObject:
   m_ObjectHideFlags: 0

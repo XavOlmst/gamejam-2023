@@ -875,6 +875,7 @@ MonoBehaviour:
   _mashQTE: {fileID: 0}
   _musicManager: {fileID: 0}
   _gameMusic: {fileID: 0}
+  _enemySpawner: {fileID: 0}
   player: {fileID: 0}
   knifeThrow: {fileID: 0}
   knifeHit: {fileID: 0}
