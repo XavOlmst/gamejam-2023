@@ -51,7 +51,7 @@ public class Knife : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(_knifeHit, transform.position);
             GameManager.Instance.AddToScore(100);
-            Destroy(collision.transform.parent.gameObject);
+            Destroy(collision.gameObject);
             Destroy(gameObject);
         }
     }
