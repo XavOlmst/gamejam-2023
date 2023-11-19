@@ -15,14 +15,17 @@ public class EnemyMovement : MonoBehaviour
 
     private AudioClip _DragonRoar;
 
-    //This is temporary
     private void Start()
     {
         _target = GameManager.Instance.GetPlayer().transform;
 
         _DragonRoar = GameManager.Instance.GetMiniDragonRoarSFX();
 
-        _animationChangeTimer = Random.Range(1, 3f);
+        _animationChangeTimer = Random.Range(5, 8f);
+
+        transform.LookAt(_target);
+
+        //transform.localRotation = Quaternion.Euler(-transform.forward);
     }
 
     private void Update()
@@ -39,7 +42,7 @@ public class EnemyMovement : MonoBehaviour
             AudioSource.PlayClipAtPoint(_DragonRoar, transform.position);
         }
 
-        if (Vector3.Distance(transform.position, _target.position) < 0.1f)
+        if (Vector3.Distance(transform.position, _target.position) < 3f)
         {
             Debug.Log("Reached the player, enable a QTE");
             Instantiate(GameManager.Instance.GetTimingQTE(), transform);

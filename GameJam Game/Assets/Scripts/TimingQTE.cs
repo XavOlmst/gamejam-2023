@@ -36,6 +36,11 @@ public class TimingQTE : MonoBehaviour
         _qteStart = GameManager.Instance.GetQTEStartSFX();
         _chompDeath = GameManager.Instance.GetDeathChompSFX();
 
+        QTERing ring = GameManager.Instance.GetQTECanvas().GetComponentInChildren<QTERing>();
+
+        ring.intialDelay = _delayToPress;
+        ring.pressedDelay = _timeToPress;
+
         audioPlayer.clip = _qteStart;
         audioPlayer.Play();
     }
@@ -43,9 +48,9 @@ public class TimingQTE : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(_chosenKey) && !_passedQTE)
+        if(Input.anyKeyDown && !_passedQTE)
         {
-            if(_delayToPress < 0 && _timeToPress > 0)
+            if(Input.GetKeyDown(_chosenKey) && _delayToPress < 0 && _timeToPress > 0)
             {
                 Debug.Log("Passed Timing QTE");
                 _passedQTE = true;
@@ -54,6 +59,7 @@ public class TimingQTE : MonoBehaviour
             else
             {
                 Debug.Log("Failed Timing QTE");
+                GameManager.Instance.GetQTECanvas().SetActive(false);
                 StartCoroutine(WaitforDeathSound());
             }
         }
@@ -93,6 +99,7 @@ public class TimingQTE : MonoBehaviour
         yield return new WaitForSeconds(_chompDeath.length);
 
         FinishQTE();
+        GameManager.Instance.SetQTEState(true);
         SceneManager.LoadScene("LoseScene");
     }
 }
