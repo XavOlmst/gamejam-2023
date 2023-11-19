@@ -7,10 +7,9 @@ public class Boss : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private ButtonMashQTE _mashQTE;
 
-
-    private void Start()
+    public void StartQTE()
     {
-        if(GameManager.Instance.IsQTEActive())
+        if (GameManager.Instance.IsQTEActive())
         {
             GameManager game = GameManager.Instance;
 
@@ -22,7 +21,7 @@ public class Boss : MonoBehaviour
         Instantiate(_mashQTE, transform);
     }
 
-    private void OnDestroy()
+    public void ResetMusic()
     {
         Debug.Log("Changing music back to normal music");
         GameManager.Instance.GetMusicManager().ChangeSong(GameManager.Instance.GetGameMusic(), 5f);

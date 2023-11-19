@@ -81,7 +81,7 @@ public class ButtonMashQTE : MonoBehaviour
         GameManager.Instance.GetMashQTEText().enabled = false;
         GameManager.Instance.SetQTEState(false);
 
-        Destroy(transform.parent.gameObject);
+        Destroy(transform.parent.parent.gameObject);
     }
 
     private IEnumerator WaitforDeathSound()
