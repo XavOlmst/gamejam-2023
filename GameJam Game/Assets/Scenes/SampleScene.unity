@@ -2243,8 +2243,8 @@ MonoBehaviour:
   _bossMusic: {fileID: 1147112621}
   _bossPrefab: {fileID: 6635261523420407328, guid: aa67d9d29204563499e2c8335125ce4d, type: 3}
   _spawnLocation: {fileID: 1730834545}
-  minTime: 10
-  maxTime: 15
+  minTime: 30
+  maxTime: 300
 --- !u!82 &1147112621
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3402,7 +3402,6 @@ MonoBehaviour:
   _gameMusic: {fileID: 2018466175}
   _enemySpawner: {fileID: 1147112618}
   player: {fileID: 963194225}
-  qteCount: 0
   knifeThrow: {fileID: 8300000, guid: 7245b6b564128ea42bb53b3dea0bf167, type: 3}
   knifeHit: {fileID: 8300000, guid: 020bb24dfdcdafe4ca9a911e4e8d696e, type: 3}
   miniDragonRoar: {fileID: 8300000, guid: be4b55ab76bf3f04daa47d7dab5739a9, type: 3}
