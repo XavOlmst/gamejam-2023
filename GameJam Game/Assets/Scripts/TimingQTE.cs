@@ -42,6 +42,8 @@ public class TimingQTE : MonoBehaviour
 
         GameManager.Instance.AddQTECount(1);
 
+        qteCount = 0;
+
         ring.intialDelay = _delayToPress;
         ring.pressedDelay = _timeToPress;
 
@@ -89,7 +91,7 @@ public class TimingQTE : MonoBehaviour
 
         
 
-        if(GameManager.Instance.GetQTECount() == qteCount + 5)
+        if(GameManager.Instance.GetQTECount() == qteCount + 3)
         {
             _delayToPress -= 0.05f;
             _timeToPress -= 0.05f;

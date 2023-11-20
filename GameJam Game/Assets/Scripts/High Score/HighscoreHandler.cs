@@ -35,7 +35,6 @@ public class HighscoreHandler : MonoBehaviour
     public void StopGame()
     {
         AddHighscoreIfPossible(new HighscoreElement(playerName.text, GameManager.Instance.GetScore()));
-        playerName.text = "Insert Name";
     }
 
     private void LoadHighscores()

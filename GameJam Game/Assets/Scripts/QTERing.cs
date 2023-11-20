@@ -18,7 +18,7 @@ public class QTERing : MonoBehaviour
     {
         totalScale = transform.localScale - innerRing.transform.localScale;
         startScale = transform.localScale;
-        qteCount = GameManager.Instance.GetQTECount();
+        qteCount = 0;
     }
 
     private void OnEnable()
@@ -43,8 +43,9 @@ public class QTERing : MonoBehaviour
             innerRing.SetActive(false);
         }
 
-        if(GameManager.Instance.GetQTECount() == qteCount + 10)
+        if(GameManager.Instance.GetQTECount() == qteCount + 0)
         {
+            Debug.Log("GRAH");
             intialDelay -= 0.05f;
             pressedDelay -= 0.05f;
 

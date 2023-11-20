@@ -14,6 +14,9 @@ public class Knife : MonoBehaviour
     private AudioClip _knifeHit;
     private AudioClip _knifeSwoosh;
 
+    private int scoreSave;
+    private int scoreMultiply = 1;
+
     private void Start()
     {
         if(!_rb)
@@ -52,6 +55,11 @@ public class Knife : MonoBehaviour
         {
             Destroy(gameObject);   
         }
+
+        if(GameManager.Instance.GetScore() == scoreSave + 10000) 
+        {
+            scoreMultiply += 1;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -59,7 +67,7 @@ public class Knife : MonoBehaviour
         if(collision.gameObject.CompareTag("Enemy"))
         {
             AudioSource.PlayClipAtPoint(_knifeHit, transform.position);
-            GameManager.Instance.AddToScore(100);
+            GameManager.Instance.AddToScore(100 * scoreMultiply);
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
