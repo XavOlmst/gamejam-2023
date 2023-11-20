@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject player;
 
     private bool _qteActive = false;
+    private int qteCount = 0;
     private int highScore = 0;
     private int score = 0;
 
@@ -74,6 +75,10 @@ public class GameManager : MonoBehaviour
     public void SetHighScore(int highScore) => this.highScore = highScore;
 
     public int GetScore() => score;
+
+    public int GetQTECount() => qteCount;
+
+    public void AddQTECount(int qte) => qteCount += qte;
 
     public void AddToScore(int scoreToAdd) => score += scoreToAdd;
 

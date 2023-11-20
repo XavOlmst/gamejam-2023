@@ -20,6 +20,8 @@ public class TimingQTE : MonoBehaviour
     private KeyCode _chosenKey;
     private bool _passedQTE = false;
 
+    private int qteCount;
+
     [SerializeField] private AudioSource audioPlayer;
 
 
@@ -37,6 +39,8 @@ public class TimingQTE : MonoBehaviour
         _chompDeath = GameManager.Instance.GetDeathChompSFX();
 
         QTERing ring = GameManager.Instance.GetTimingQTECanvas().GetComponentInChildren<QTERing>();
+
+        GameManager.Instance.AddQTECount(1);
 
         ring.intialDelay = _delayToPress;
         ring.pressedDelay = _timeToPress;
@@ -81,6 +85,16 @@ public class TimingQTE : MonoBehaviour
                 _passedQTE = true;
                 StartCoroutine(WaitforDeathSound());
             }
+        }
+
+        
+
+        if(GameManager.Instance.GetQTECount() == qteCount + 5)
+        {
+            _delayToPress -= 0.05f;
+            _timeToPress -= 0.05f;
+
+            qteCount = GameManager.Instance.GetQTECount();
         }
     }
 

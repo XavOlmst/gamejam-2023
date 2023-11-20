@@ -2210,9 +2210,9 @@ MonoBehaviour:
   _moveManager: {fileID: 0}
   _enemyPrefab: {fileID: 823676556036294279, guid: 419341755f644c844aa09c134d834365, type: 3}
   _spawnDistance: 25
-  minSpawnDelay: 10
-  maxSpawnDelay: 25
-  numberSpawnedRange: {x: 8, y: 15}
+  minSpawnDelay: 15
+  maxSpawnDelay: 20
+  numberSpawnedRange: {x: 3, y: 8}
 --- !u!4 &1147112619
 Transform:
   m_ObjectHideFlags: 0
@@ -2243,8 +2243,8 @@ MonoBehaviour:
   _bossMusic: {fileID: 1147112621}
   _bossPrefab: {fileID: 6635261523420407328, guid: aa67d9d29204563499e2c8335125ce4d, type: 3}
   _spawnLocation: {fileID: 1730834545}
-  minTime: 10
-  maxTime: 15
+  minTime: 30
+  maxTime: 300
 --- !u!82 &1147112621
 AudioSource:
   m_ObjectHideFlags: 0

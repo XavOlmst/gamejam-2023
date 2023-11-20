@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class QTERing : MonoBehaviour
 {
-    public float intialDelay;
-    public float pressedDelay;
+    public float intialDelay = 1.25f;
+    public float pressedDelay = 0.75f;
+
+    private int qteCount;
 
     private Vector3 totalScale;
     private Vector3 startScale;
@@ -16,6 +18,7 @@ public class QTERing : MonoBehaviour
     {
         totalScale = transform.localScale - innerRing.transform.localScale;
         startScale = transform.localScale;
+        qteCount = GameManager.Instance.GetQTECount();
     }
 
     private void OnEnable()
@@ -38,6 +41,14 @@ public class QTERing : MonoBehaviour
         if(transform.localScale.x <= 0 || transform.localScale.y <= 0)
         {
             innerRing.SetActive(false);
+        }
+
+        if(GameManager.Instance.GetQTECount() == qteCount + 10)
+        {
+            intialDelay -= 0.05f;
+            pressedDelay -= 0.05f;
+
+            qteCount = GameManager.Instance.GetQTECount();
         }
     }
 }

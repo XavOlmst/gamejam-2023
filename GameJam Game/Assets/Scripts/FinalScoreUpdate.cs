@@ -26,7 +26,7 @@ public class FinalScoreUpdate : MonoBehaviour
 
         if(!noMore)
         {
-            count += 1;
+            count += 10;
             scoreText.text = count.ToString();
         }
     }

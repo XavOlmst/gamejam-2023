@@ -13,10 +13,12 @@ public class EnemySpawning : MonoBehaviour
     [SerializeField] private Vector2Int numberSpawnedRange;
     private List<GameObject> _enemiesSpawned = new();
     private float spawnTimer = 0f;
+    private int currentScore;
 
     private void Start()
     {
         //spawnTimer = Random.Range(minSpawnDelay, maxSpawnDelay);
+        currentScore = GameManager.Instance.GetScore();
     }
 
     private void FixedUpdate()
@@ -30,6 +32,30 @@ public class EnemySpawning : MonoBehaviour
             spawnTimer = Random.Range(minSpawnDelay, maxSpawnDelay);
 
             SpawnEnemies();
+        }
+
+        if(GameManager.Instance.GetScore() == currentScore + 1000)
+        {
+            maxSpawnDelay -= 1;
+            if(maxSpawnDelay <= 6)
+            {
+                maxSpawnDelay = 6;
+            }
+
+            minSpawnDelay -= 1;
+            if (minSpawnDelay <= 6)
+            {
+                minSpawnDelay = 6;
+            }
+
+            numberSpawnedRange = new Vector2Int(numberSpawnedRange.x + 1, numberSpawnedRange.y + 2);
+            if(numberSpawnedRange.x >= 40 && numberSpawnedRange.y >= 75)
+            {
+                numberSpawnedRange.x = 40;
+                numberSpawnedRange.y = 75;
+            }
+
+            currentScore = GameManager.Instance.GetScore();
         }
     }
 
